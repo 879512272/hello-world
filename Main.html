@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>主页面</title>
+		<link rel="stylesheet" type="text/css" href="css/game.css" />
+		<script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+<<<<<<< HEAD
+		<!--<script src="js/data.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="js/socket.io.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/five.js" type="text/javascript" charset="utf-8"></script>
+=======
+		<script src="js/data.js" type="text/javascript" charset="utf-8"></script><br />
+		<script src="js/socket.io.js"></script>
+		<script src="js/Fir.js" type="text/javascript" charset="utf-8"></script>
+>>>>>>> 928e58c433b22ee8a127d40ae9cdcd8c6fd291e2
+	</head>
+
+	<body>
+		<script type="text/javascript">
+		</script>
+		<div class="main-con">
+			<div class="userinfo">
+				<h1></h1>
+				<p></p>
+				<p></p>
+			</div>
+			<div class="online">
+				<div class="head">
+					<h2>在线玩家</h2>
+<<<<<<< HEAD
+					<span></span>
+=======
+					<span>76/98人</span>
+>>>>>>> 928e58c433b22ee8a127d40ae9cdcd8c6fd291e2
+				</div>
+				<div class="body">
+					<table>
+					</table>
+				</div>
+			</div>
+			<div class="room">
+				<div class="head">
+					<h2>房间</h2>
+				</div>
+				<div class="body">
+
+				</div>
+
+			</div>
+			<div class="chat">
+				<div class="head">
+					<h2>聊天信息</h2>
+				</div>
+				<div class="body" id = "msgwall">
+					<p id="time1">01:12</p>
+					<ul>
+
+					</ul>
+				</div>
+				<div class="footer">
+					<input type="text" id="chatMsg" placeholder="输入信息" />
+					<button id="sentMsg">发送</button>
+				</div>
+
+<<<<<<< HEAD
+			</div>
+			<input id="inputRoomNum" placeholder="房间名称" />
+			<button id="enterTheRoom">创建房间</button>
+			<div class="game" id="game">
+			</div>
+=======
+			</div>
+			<input id="inputRoomName" placeholder="输入房间号" />
+			<button id="enterTheRoom">进入房间</button>
+			<div class="game" id="game">
+				
+			</div>
+>>>>>>> 928e58c433b22ee8a127d40ae9cdcd8c6fd291e2
+		</div>
+		
+	</body>
+	<script type="text/javascript">
+<<<<<<< HEAD
+	
+	
+	
+	
+	
+	
+		var user = null;
+		var socket = io('http://localhost:3000', {
+			autoConnect: false,
+			reconnection: false
+=======
+		var user = null;
+		var socket = io('http://localhost:3000', {
+			reconnection: false,
+			autoConnect: false
+>>>>>>> 928e58c433b22ee8a127d40ae9cdcd8c6fd291e2
+		});
+		$(function() {
+			user = localStorage.getItem("user");
+			if(!user) {
+				window.location.href = "Login.html";
+				return;
+			} else {
+				user = JSON.parse(user);
+			}
+<<<<<<< HEAD
+
+			socket.open(); //连接服务器
+
+			socket.on('connect', function() {
+				user.id = socket.id; //赋值id
+				user.status = 1; //在线状态
+				socket.emit("user.online", user);
+				initUser(user);
+			});
+			socket.on("user.online", function(users) {
+				initOnline(users);
+			});
+			socket.on("chat.chat", function(chat) {
+=======
+			socket.open();
+			socket.on('connect', function() {
+				user = JSON.parse(localStorage.getItem("user"));
+				user.id = socket.id;
+				user.status = 1;
+				initUser(user);
+				socket.emit("user.online", user);
+			})
+			socket.on("user.online", function(users) {
+				initOnline(users);
+			})
+			socket.on("chat.newchat", function(chat) {
+>>>>>>> 928e58c433b22ee8a127d40ae9cdcd8c6fd291e2
+				showChat(chat, false);
+			});
+			socket.on("room.rooms", function(rooms) {
+				initRooms(rooms);
+<<<<<<< HEAD
+			});
+			socket.on("room.exists", function() {
+				alert("房间存在,创建失败");
+			});
+			socket.on("room.createOK", function(room) {
+				joinRoom(room, true);
+			});
+
+			socket.on("room.joinfalid", function() {
+				alert("房间已满");
+			});
+			socket.on("room.joinOK", function(room) {
+				joinRoom(room, false);
+			});
+			socket.on("game.start",function(flag){
+				gameInit("game",flag);
+			});
+			socket.on("game.changedata",function(data){
+				drawFive(data.row,data.col,data.flag);
+				status="run";
+			})
+=======
+			})
+			socket.on("room.existed", function() {
+				alert("房间存在,创建失败");
+			});
+			socket.on("room.hasCreated", function(room) {
+				joinRoom(room, true);
+			})
+			socket.on("room.joinfaild",function(){
+				alert("房间已满");
+			})
+			socket.on("room.joinOK",function(room){
+				joinRoom( room,false);
+			})
+			socket.on("game.start",function(player){
+				gameInit("game",player);
+			})
+			socket.on("game.changedata",function(data){
+				drawOpponentChessmen(data.row,data.col,data.player);
+				status = "run"
+			});
+>>>>>>> 928e58c433b22ee8a127d40ae9cdcd8c6fd291e2
+			socket.on("game.over",function(user){
+				//清除棋盘
+				$("#game").html("");
+				initUser(user);
+<<<<<<< HEAD
+				data=[];//初始化数组
+			})
+
+=======
+				data = [];//初始化数组 初始化数组
+			});
+			
+>>>>>>> 928e58c433b22ee8a127d40ae9cdcd8c6fd291e2
+			$("#sentMsg").click(function() {
+				var chat = {
+					nickname: user.nickname,
+					msg: $("#chatMsg").val(),
+				}
+<<<<<<< HEAD
+				msg: $("#chatMsg").val('');
+				showChat(chat, true);
+				socket.emit("chat.send", chat);
+			});
+			//创建房间
+			$("#enterTheRoom").click(function() {
+
+				socket.emit("room.enterTheRoom", $("#inputRoomNum").val());
+				$("#inputRoomNum").val('');
+			});
+			/*			initUser(user);
+						initOnline(users);
+						initRooms(rooms);*/
+		});
+
+		function joinRoom(room, iscreate) {
+			var html = "<p>玩家一：";
+			html+= "姓名:" + room.play1.nickname ;
+			html+= "&nbsp;胜场：" + room.play1.win;
+			html+= "</p>";
+			html+="VS";
+			if(room.play2) {
+			html+= "<p>玩家二：";
+			html+= "姓名:" + room.play2.nickname ;
+			html+= "&nbsp;胜场：" + room.play2.win;
+			html+= "</p>";
+			}
+			if(iscreate) {
+				html += "<button id='gamestart'>开始游戏</button>";
+			}
+			html += "<button id='leaveroom'>退出游戏</button>";
+
+			$(".room .body").html(html);
+			$("#gamestart").click(function(){
+				socket.emit("game.start");
+			})
+			$("#leaveroom").click(function(){
+				socket.emit("room.leave");
+			})
+		}
+
+		function initUser(user) {
+			$(".userinfo h1").html(user.nickname).next().html("ID" + user.id)
+				.next().html("胜场" + user.win + "胜率" + (user.total ? user.win / user.total : 0)*100 + "%");
+=======
+				$("#chatMsg").val('');
+				showChat(chat, true);
+				socket.emit("chat.send", chat);
+			})
+			$("#enterTheRoom").click(function() {
+				socket.emit("room.enterTheRoom", $("#inputRoomName").val());
+			});
+		});
+
+		function initUser(user) {
+
+			$(".userinfo h1").html(user.nickname).next().
+				html("ID" + user.id).next().
+				html("胜场" + user.win + "胜率" + (user.total ? user.win / user.total : 0)*100	 + "%");
+>>>>>>> 928e58c433b22ee8a127d40ae9cdcd8c6fd291e2
+		}
+
+		function initOnline(users) {
+			var html = "";
+			for(var i = 0; i < users.length; i++) {
+				var temp = users[i];
+				html += '<tr>';
+				html += '<td>' + temp.nickname + '</td>';
+				html += '<td>' + temp.id + '</td>';
+				html += '<td>' + getStatus(temp.status) + '</td>';
+				html += '</tr>';
+			}
+			$(".online table").html(html);
+<<<<<<< HEAD
+			$(".online .head span").html(users.length+"/人");
+=======
+>>>>>>> 928e58c433b22ee8a127d40ae9cdcd8c6fd291e2
+		}
+
+		function getStatus(status) {
+			if(status == 1) {
+				return "在线";
+			} else if(status == 2) {
+				return "准备中";
+			} else if(status == 3) {
+				return "游戏中";
+			} else {
+				return "";
+			}
+		}
+
+		function initRooms(rooms) {
+			var html = "";
+			for(var i = 0; i < rooms.length; i++) {
+				var temp = rooms[i];
+<<<<<<< HEAD
+				html += '<div data-roomname=' + temp.roomname + '>';
+=======
+				html += '<div data-roomname='+ temp.roomname + '>';
+>>>>>>> 928e58c433b22ee8a127d40ae9cdcd8c6fd291e2
+				html += '<img src="img/room.png"  />';
+				html += '<p>' + temp.roomname + '</p>';
+				html += '</div>';
+			}
+			$(".room .body").html(html);
+			$(".room .body div").click(function() {
+				socket.emit("room.join", $(this).data("roomname"));
+			});
+		}
+<<<<<<< HEAD
+
+		function showChat(chat, isme) {
+			if(isme) {
+				$(".chat .body ul").append("<li style='text-align: right';>" + chat.msg + ":" + chat.nickname + "</li>");
+			} else {
+				$(".chat .body ul").append("<li >" + chat.nickname + ":"+ chat.msg  + "</li>");
+			}
+		}
+=======
+		
+		function joinRoom(room, iscreate) {
+			var html = "";
+			html += "玩家一:" + room.play1.nickname + "&nbsp;胜场:" + room.play1.win + "<br>PK<br>";
+			if(room.play2) {
+				html += "玩家二:" + room.play2.nickname + "&nbsp;胜场:" + room.play2.win;
+			}
+			if(iscreate) {
+				html += "<button id ='startGame'>开始游戏</button>";
+			}
+			html += "<button id ='exitRoom'>退出游戏</button>";
+			$(".room .body").html(html);
+			$("#startGame").click(function(){
+				socket.emit("game.start");
+			});
+			$("#exitRoom").click(function(){
+				socket.emit("game.exit");
+			});
+		}
+
+		function showChat(chat, isme) {
+			if(isme) {
+				$(".chat .body ul").append("<p style='font-size: 13px;text-align: center;'>" + new Date() + "</p>" + "<li style='text-align: right';>" + chat.msg + ":" + chat.nickname + "</li>");
+			} else {
+				$(".chat .body ul").append("<li >" + chat.nickname + ":" + chat.msg + "</li>");
+			}
+		}
+
+>>>>>>> 928e58c433b22ee8a127d40ae9cdcd8c6fd291e2
+	</script>
+
+</html>
+`

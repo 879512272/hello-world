@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>canvasTest</title>
+		<script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/canvasTest.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="css/canvasTest.css"/>
+	</head>
+
+	<body>
+		<div style="text-align: center;">
+			<canvas id="lineCan" width="300px" height="300px" style="background-color: gray" ;></canvas>
+			<canvas id="rectCan" width="300px" height="300px" style="background-color: gray" ;></canvas>
+			<canvas id="arcCan" width="300px" height="300px" style="background-color: gray" ;></canvas>
+		</div>
+		<br></br>
+		<div style="margin: auto;text-align: center;width: 1200px;height: 500px;">
+			<button id="curve">curve</button>
+			<button id="line">line</button>
+			<button id="rect">rect</button>
+			<button id="arc">arc</button>
+			<button id="eraser">eraser</button>
+			<button id="save">save</button>
+
+			<select id="lineWidth">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+				<option>5</option>
+			</select>
+
+			<select id="color">
+				<option>red</option>
+				<option>green</option>
+				<option>blue</option>
+			</select>
+			
+			<br></br>
+			<div style="margin: auto;">
+				<canvas id="can" width="600px" height="300px" style="background-color: antiquewhite;text-align: center;"></canvas>
+				<div id="img" style="background-color: #D3D3D3;width: 600px;height: 300px;text-align: center;margin: auto;"></div>
+			</div>
+
+		</div>
+
+	</body>
+
+</html>

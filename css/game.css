@@ -1,0 +1,249 @@
+@font-face{
+	font-family:汉仪雪君体简 ;
+	src: url(汉仪雪君体简.ttf)	;
+}
+body,html{
+	font-family: 汉仪雪君体简;
+	font-size: 16px;	
+}
+.login-con{
+	background: url(../img/login-bg.jpg);
+	width: 1200px;
+	height: 600px;
+	margin: auto;
+	position: relative;
+}
+.login-con input[type=text]{
+	position: absolute;
+	left: 480px;
+	bottom: 180px;
+	height: 45px;
+	width: 230px;
+	border: none;
+	outline: none;
+	background: transparent;
+	color: white;	
+	text-align: center;
+	font-family: 汉仪雪君体简;
+	font-size: 18px;	
+	transition: all 0.2s ease-in-out;	
+}
+.login-con button{
+	position: absolute;
+	left: 480px;
+	bottom: 95px;
+	height: 45px;
+	width: 230px;
+	border: none;
+	outline: none;
+	background: transparent;
+	color: lightgray;	
+	text-align: center;
+	font-family: 汉仪雪君体简;
+	font-size: 18px;	
+	transition: all 0.2s ease-in-out;
+}
+.login-con button:hover{
+	transform:  scale(1.2);
+}
+.login-con input[type=text]:hover{
+	transform:  scale(1.2);
+}
+.main-con{
+	width: 1200px;
+	height: 600px;
+	margin: auto;
+	background-image: url(../img/main-bg.jpg);
+	position: relative;
+}
+.main-con .userinfo{
+	position: absolute;
+	left: 120px;
+	top: 70px;
+	width: 240px;
+	height: 150px;
+}
+.main-con .online{
+	position: absolute;
+	bottom: 140px;
+	left: 100px;
+	width: 280px;
+	height: 170px;
+}
+.main-con .online .head{
+	margin-bottom: 10px;
+}
+.main-con .online .body{
+	height: 120px;
+	overflow-y: scroll;
+}
+.main-con .online .head h2{
+	margin: 0px;
+	float: left;
+}
+.main-con .online .head span{
+	float: right;
+}
+.main-con .online .head:before{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.main-con .online .head:after{
+	content: " ";
+	display: block;
+	clear: both;
+}
+.main-con .online .body table{
+	width: 100%;
+}
+.main-con .online .body table tr{
+	height: 30px;
+}
+#inputRoomName{
+	position: absolute;
+	bottom: 50px;
+	left: 100px;
+	width: 125px;
+	height: 30px;
+	border: none;
+	background: transparent;
+	outline: none;
+	color: white;
+	font-family: 汉仪雪君体简;
+	font-size: 19px;
+	text-align: center;
+}
+#enterTheRoom{
+	position: absolute;
+	bottom: 40px;
+	left: 285px;
+	width: 70px;
+	height: 48px;
+	background: transparent;
+	color: white;
+	border: none;
+	font-family: 汉仪雪君体简;
+	font-size: 20px;
+	transition: all 0.2s ease-in-out;
+	outline: none;
+}
+#enterTheRoom:hover{
+	transform:  scale(1.2);
+}
+.main-con .room{
+	position: absolute;
+	top: 50px;
+	right: 75px;
+	width: 680px;
+	height: 170px;
+}
+.main-con .room .head{
+	text-align: center;
+}
+.main-con .room .body{
+	margin-top: 10px;
+	height: 130px;
+	overflow-y: scroll;
+}
+.main-con .room .body div{
+	text-align: center;
+		float: left;
+		margin: 10px 20px;
+}
+.main-con .room .head h2{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.main-con .room .body p{
+	margin: 0px;
+}
+.main-con .chat{
+	position: absolute;
+	right: 70px;
+	bottom: 53px;
+	width: 650px;
+	height: 270px;
+}
+.main-con .chat .head{
+	text-align: center;
+}
+.main-con .chat .body{
+	font-size: 23px;
+	height: 120px;
+	overflow-y:scroll;
+}
+.main-con .chat .footer{
+	margin-top: 50px;
+	text-align: center;
+}
+.main-con .chat .head h2{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.main-con .chat .body ul{
+	list-style: none;
+	padding: 0px;
+	margin: 0px;
+	color: #484343;
+}
+.main-con .chat .body ul li{
+	height: 30px;
+	line-height: 30px;
+}
+.main-con .chat .body p{
+	text-align: right;
+	color: #484343;
+}
+.main-con .chat .footer input[type=text]{
+	text-align: center;
+	border: 1px solid black;
+	outline: none;
+	font-family: 汉仪雪君体简;
+	font-size: 22px;
+	border-radius: 10px;
+	color: black;
+	background-color: transparent;
+}
+.main-con .chat .footer button{
+	transition: all 0.2s ease-in-out; 
+	outline: none;
+	border: none;
+	background-color: transparent;
+	font-family: 汉仪雪君体简;
+	font-size: 22px;
+	border-radius: 10px;
+	color: black;
+	
+}
+#time1{
+	margin: 0px;
+	text-align: center;
+	font-size: 16px;
+	color: darkgray;
+}
+#time2{
+	margin: 0px;
+	text-align: center;
+	font-size: 16px;
+	color: darkgray;
+}
+.main-con .chat .footer button:hover{
+	transform:  scale(1.2);
+}
+.game{
+	position: absolute;
+<<<<<<< HEAD
+	left: 0px;
+	top:0px;
+}
+.game canvas{
+	background-color: antiquewhite;
+=======
+	text-align: center;
+}
+.game canvas{
+	margin: auto;
+	background-color: palegoldenrod;
+>>>>>>> 928e58c433b22ee8a127d40ae9cdcd8c6fd291e2
+}

@@ -1,0 +1,28 @@
+body{
+	transition: all 0.2s ease-in-out;
+}
+button{
+	outline: none;
+	border: none;
+	font-size: 20px;
+	font-family: "微软雅黑";
+	background-color: lightcyan;
+}
+button:hover{
+	color: lightcoral;
+	transform: scale(1.1);
+}
+select{
+	outline: none;
+	border: none;
+	font-size: 20px;
+	font-family: "微软雅黑";
+	background-color: lightcoral;
+}
+option{
+	outline: none;
+	border: none;
+	font-size: 20px;
+	font-family: "微软雅黑";
+	background-color: #ADD8E6;
+}

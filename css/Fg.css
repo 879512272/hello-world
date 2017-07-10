@@ -1,0 +1,22 @@
+.contain{
+	width: 700px;
+	margin: auto;
+}
+.left{
+	width: 140px;
+	float: left;
+	
+}
+.right{
+	width: 140px;
+	float: right;
+}
+.contain img{
+		transition:all 0.3s ease-in-out;
+}
+.contain .info{
+	width: 700px;
+	margin: auto;
+	height: 200px;
+	overflow-y: scroll;
+}
